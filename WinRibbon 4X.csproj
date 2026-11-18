@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>WinRibbon_4X</AssemblyName>
+    <RootNamespace>WinRibbon_4X</RootNamespace>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- The library projects live in subfolders; keep their sources out of this app. -->
+    <Compile Remove="WinRibbon\**\*.cs" />
+    <Compile Remove="WinRibbon.Design\**\*.cs" />
+    <None Remove="WinRibbon\**\*" />
+    <None Remove="WinRibbon.Design\**\*" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- New net48-only ribbon + its legacy design assembly. -->
+    <ProjectReference Include="WinRibbon\WinRibbon.csproj" />
+    <!-- Required: the Ribbon's [Designer]/[Editor] attributes resolve types from
+         the assembly named RibbonLib.Design at design time. -->
+    <ProjectReference Include="WinRibbon.Design\WinRibbon.Design.csproj" />
+  </ItemGroup>
+
+</Project>

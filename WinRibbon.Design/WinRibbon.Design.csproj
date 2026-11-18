@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <!-- Legacy .NET Framework design-time assembly.
+         AssemblyName stays "RibbonLib.Design" on purpose: the Ribbon controls carry
+         [Designer("...RibbonDesigner, RibbonLib.Design")], so the file name must match
+         for the Visual Studio designer to resolve it. -->
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <AssemblyName>RibbonLib.Design</AssemblyName>
+    <RootNamespace>RibbonLib</RootNamespace>
+    <Version>1.0.0</Version>
+    <Description>Design-time support for WinRibbon on .NET Framework 4.8 (legacy System.Design surface).</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WinRibbon\WinRibbon.csproj" />
+  </ItemGroup>
+
+  <!-- Legacy designer surface lives in the .NET Framework design assemblies,
+       which SDK-style projects do not reference implicitly. -->
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+
+</Project>

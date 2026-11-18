@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <!-- .NET Framework 4.8 only: the runtime half of the universal ribbon.
+         Sources are linked from RibbonWinForms-net48-test so there is a single
+         source of truth; only the target framework differs. -->
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <AssemblyName>WinRibbon</AssemblyName>
+    <RootNamespace>RibbonLib</RootNamespace>
+    <Version>1.0.0</Version>
+    <Description>Office-style ribbon for Windows Forms (.NET Framework 4.8). Same sources as RibbonLib, compiled for the legacy framework only.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- The design assembly is named RibbonLib.Design, matching RibbonLib.csproj. -->
+    <InternalsVisibleTo Include="RibbonLib.Design" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Runtime sources live in the shared repo; link them in rather than copy. -->
+    <Compile Include="..\..\RibbonWinForms-net48-test\Classes\**\*.cs" />
+    <Compile Include="..\..\RibbonWinForms-net48-test\Component Classes\**\*.cs" />
+    <Compile Include="..\..\RibbonWinForms-net48-test\RibbonForm.cs" />
+    <!-- AssemblyLoadContext/ModuleInitializer are .NET Core-only; RibbonLib.csproj excludes
+         this file for net48 for the same reason. -->
+    <Compile Remove="..\..\RibbonWinForms-net48-test\Classes\RibbonDesignToolsResolver.cs" />
+  </ItemGroup>
+
+</Project>

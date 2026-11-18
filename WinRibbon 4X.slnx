@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="WinRibbon 4X.csproj" />
+  <Project Path="WinRibbon.Design/WinRibbon.Design.csproj" />
+  <Project Path="WinRibbon/WinRibbon.csproj" />
+</Solution>
