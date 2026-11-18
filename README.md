@@ -7,6 +7,8 @@
 
 A WinForms ribbon control for **.NET Framework 4.8**, with full Visual Studio designer support via the legacy in-process designer.
 
+![WinRibbon 4X sample app: Office-style ribbon with tabs, panels and the orb menu](docs/ribbon4x.png)
+
 ## Projects
 
 | Project | What it is |
