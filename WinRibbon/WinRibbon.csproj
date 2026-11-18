@@ -22,13 +22,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <!-- Runtime sources live in the shared repo; link them in rather than copy. -->
-    <Compile Include="..\..\RibbonWinForms-net48-test\Classes\**\*.cs" />
-    <Compile Include="..\..\RibbonWinForms-net48-test\Component Classes\**\*.cs" />
-    <Compile Include="..\..\RibbonWinForms-net48-test\RibbonForm.cs" />
-    <!-- AssemblyLoadContext/ModuleInitializer are .NET Core-only; RibbonLib.csproj excludes
-         this file for net48 for the same reason. -->
-    <Compile Remove="..\..\RibbonWinForms-net48-test\Classes\RibbonDesignToolsResolver.cs" />
+    <!-- Runtime sources are vendored in this folder (Classes/, Component Classes/,
+         RibbonForm.cs) so the repo builds standalone on .NET Framework 4.8. -->
+    <!-- AssemblyLoadContext/ModuleInitializer are .NET Core-only; RibbonLib.csproj
+         excludes this file for net48 for the same reason. -->
+    <Compile Remove="Classes\RibbonDesignToolsResolver.cs" />
   </ItemGroup>
 
 </Project>

@@ -7,6 +7,8 @@
     <Nullable>disable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>disable</ImplicitUsings>
+    <!-- Form1.resx contains a binary-serialized resource (form icon). -->
+    <GenerateResourceUsePreserializedResources>true</GenerateResourceUsePreserializedResources>
     <AssemblyName>WinRibbon_4X</AssemblyName>
     <RootNamespace>WinRibbon_4X</RootNamespace>
     <Version>1.0.0</Version>
@@ -32,6 +34,10 @@
     <!-- Required: the Ribbon's [Designer]/[Editor] attributes resolve types from
          the assembly named RibbonLib.Design at design time. -->
     <ProjectReference Include="WinRibbon.Design\WinRibbon.Design.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Resources.Extensions" Version="8.0.0" />
   </ItemGroup>
 
 </Project>
